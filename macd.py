@@ -175,11 +175,13 @@ class Macd(object):
 
         return (status in [cp_model.OPTIMAL, cp_model.FEASIBLE])
 
-    def print_managers(self):
+    def format_managers(self):
         if self.solver is None:
             return 
 
-        print('Managers for each night:')
+        s = ''
+
+        s += 'Managers for each night:\n'
         for n in self.all_nights:
             mgrs = []
             for m in self.all_mgrs:
@@ -188,9 +190,9 @@ class Macd(object):
                         mgrs.append('%s(!)' % self.doodle[m][0])
                     else:
                         mgrs.append(self.doodle[m][0])
-            print('%s: %s' % (self.nights[n], ' and '.join(mgrs)))
+            s += '%s: %s\n' % (self.nights[n], ' and '.join(mgrs))
 
-        print('\nNights for each manager:')
+        s += '\nNights for each manager:\n'
         for m in self.all_mgrs:
             nights = []
             for n in self.all_nights:
@@ -200,7 +202,9 @@ class Macd(object):
                     else:
                         nights.append(self.nights[n])
 
-            print('%s: %s' % (self.doodle[m][0], ', '.join(nights)))
+            s += '%s: %s\n' % (self.doodle[m][0], ', '.join(nights))
+
+        return s
 
     def raw_data(self):
         return {m: {n: self.solver.Value(s) for n, s in sched.items()} for (m, sched) in self.shifts.items()}

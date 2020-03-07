@@ -41,8 +41,7 @@ slv.set_prev(cfg.get('prev'))
 if slv.solve():
     print('Found a solution!')
     print()
-    slv.print_managers()
-    print()
+    print(slv.format_managers())
     print('Raw data:')
     print(slv.raw_data())
 else:
