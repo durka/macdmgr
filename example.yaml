@@ -1,0 +1,22 @@
+# Exported from Doodle
+xls: ~/Downloads/Doodle.xls
+
+# Configuration
+config:
+    # mgrs_per_night: 2 # number of managers to assign each night
+    # min_nights: 1 # minimum number of nights to assign to each manager
+    # max_nights: 2 # maximum number of nights to assign to each manager
+    # non_consecutive: 2 # minimum number of nights in between managing
+    # availability_level: 'YES' # set to IFNEEDBE if there is no feasible schedule with YES
+
+# Thumb on scale
+
+# together:
+#     - [A, B]
+# apart:
+#     - [A, B]
+# pin:
+#     A: MM/DD
+#
+# prev: <copy from "raw data" output after first run>
+
